@@ -25,7 +25,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
                 <h1 class="text-center">Edición de empleado</h1>
                 <div class="card-body">
-                    <form th:action="@{/empleados/{id}(id=${empleado.id})}" th:object="${empleado}" method="POST">
+                    <form th:action="@{/empleados/{id}(id=${empleado.codigo})}" th:object="${empleado}" method="POST">
                         <div class="form-group">
                             <label>Nif : </label>
                             <input type="text" name="nif" th:field="*{nif}" class="form-control"
