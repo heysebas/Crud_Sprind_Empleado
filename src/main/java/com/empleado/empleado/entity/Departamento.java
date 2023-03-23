@@ -16,7 +16,7 @@ public class Departamento {
         @Column(name = "presupuesto", nullable = false)
         private double presupuesto;
     
-        @Column(name = "apellgastosido2", nullable = false)
+        @Column(name = "gastos", nullable = false)
         private double gastos;
 
         public Departamento() {
