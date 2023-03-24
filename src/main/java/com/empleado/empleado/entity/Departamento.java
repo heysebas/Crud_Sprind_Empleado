@@ -1,5 +1,7 @@
 package com.empleado.empleado.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +20,10 @@ public class Departamento {
     
         @Column(name = "gastos", nullable = false)
         private double gastos;
+
+        @OneToMany
+        private List<Empleado>empleados;
+
 
         public Departamento() {
         }
@@ -61,6 +67,15 @@ public class Departamento {
             this.gastos = gastos;
         }
 
+        public List<Empleado> getEmpleados() {
+            return empleados;
+        }
+
+        public void setEmpleados(List<Empleado> empleados) {
+            this.empleados = empleados;
+        }
+
+        
         
 
 }

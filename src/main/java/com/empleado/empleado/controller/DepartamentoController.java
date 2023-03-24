@@ -17,7 +17,7 @@ public class DepartamentoController {
     @Autowired
     private DepartamentoServicio servicio;
 
-    @GetMapping({ "/departamentos", "/" })
+    @GetMapping({ "/departamentos"})
     public String listarEmpleados(Model modelo) {
         modelo.addAttribute("departamentos", servicio.listarTodosLosDepartamentos());
         return "departamentos"; // nos retorna al archivo empleados

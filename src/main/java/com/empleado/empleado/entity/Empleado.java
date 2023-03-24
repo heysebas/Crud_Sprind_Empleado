@@ -22,6 +22,10 @@ public class Empleado {
     @Column(name = "apellido2", nullable = false, length = 100)
     private String apellido2;
 
+    @ManyToOne 
+    private Departamento departamento;
+
+
     public Empleado() {
     }
 
@@ -33,6 +37,8 @@ public class Empleado {
         this.apellido2 = apellido2;
     }
 
+
+    
     public Long getCodigo() {
         return codigo;
     }
@@ -72,6 +78,15 @@ public class Empleado {
     public void setApellido2(String apellido2) {
         this.apellido2 = apellido2;
     }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
 
 
     

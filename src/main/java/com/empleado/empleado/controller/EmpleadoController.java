@@ -8,24 +8,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.empleado.empleado.entity.Departamento;
 import com.empleado.empleado.entity.Empleado;
+import com.empleado.empleado.service.DepartamentoServicio;
 import com.empleado.empleado.service.EmpleadoServicio;
 
 @Controller
 public class EmpleadoController {
     @Autowired
     private EmpleadoServicio servicio;
+    @Autowired
+    private DepartamentoServicio servicio2;
 
-    @GetMapping({ "/empleados", "/" })
+    @GetMapping({ "/", "/empleados", "/index" })
     public String listarEmpleados(Model modelo) {
         modelo.addAttribute("empleados", servicio.listarTodosLosEmpleados());
+        
         return "empleados"; // nos retorna al archivo empleados
     }
     
     @GetMapping("/empleados/nuevo")
-    public String mostrarFormularioDeRegistrtarEstudiante(Model modelo) {
+    public String mostrarFormularioDeRegistrtarEstudiante(Model modelo, @ModelAttribute("departamentos") Departamento departamento) {
         Empleado empleado = new Empleado();
         modelo.addAttribute("empleado", empleado);
+        modelo.addAttribute("departamentos", servicio2.listarTodosLosDepartamentos());
         return "crear_empleado";
     }
 
